@@ -27,5 +27,3 @@ def init_db():
 def init_db_command():
     init_db()
     click.echo('Baza danych została zainicjalizowana.')
-
-# So let's make some changes! :)
