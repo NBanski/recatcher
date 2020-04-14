@@ -7,11 +7,11 @@ CREATE TABLE alert (
     src_ip,
     src_data,
     channel,
-    time,
+    time
 );
 
 CREATE table user (
-    id INTEGER PRIMARY KEY AUTOINCREMENT
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
     username TEXT UNIQE NOT NULL,
-    password TEXT NOT NULL,
+    password TEXT NOT NULL
 );
