@@ -14,5 +14,6 @@ def mainScreen():
         'SELECT id, manage_url, memo, src_ip, channel, time'
         ' FROM alert WHERE id'
         ' ORDER BY id DESC'
+        ' LIMIT 5'
     ).fetchall()
     return render_template('dashboard/dashboard.html', alerts = alerts)
