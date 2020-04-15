@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block header %}
+<h1>{% block title %}Dashboard{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+ {% for Alerts in Alerts %}
+  <article class="alert">
+      <header>
+          <div>
+              <h1>{{ alert['id'] }}</h1>
+          </div>
+      </header>
+  </article>
+  {% if not loop.last %}
+      <hr>
+  {% endif %}
+ {% endfor %} 
+{% endblock %}

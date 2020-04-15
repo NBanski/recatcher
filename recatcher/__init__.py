@@ -31,14 +31,15 @@ def create_app(test_config=None):
         return "Hello, World!"
 
     # Blueprints are registered below.
-    
+
     from . import db
     db.init_app(app)
 
     from . import trap
     app.register_blueprint(trap.bp)
 
-    from . import srch
-    app.register_blueprint(srch.bp)
+    from . import dashboard
+    app.register_blueprint(dashboard.bp)
+    app.add_url_rule('/', endpoint='index')
 
     return app
