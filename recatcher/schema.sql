@@ -5,7 +5,6 @@ CREATE TABLE alert (
     manage_url,
     memo,
     src_ip,
-    src_data,
     channel,
     time
 );

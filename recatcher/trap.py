@@ -2,32 +2,32 @@
 # CanaryTokens alerts should lead to this particular place.
 
 from flask import (
-    Blueprint, flash, g, render_template, redirect, request, url_for
+    request, Blueprint
 )
-from flask import Request
 from recatcher.db import get_db
 
 bp = Blueprint('trap', __name__)
 
-@bp.route('/trap', methods=["GET", "POST"])
+@bp.route('/trap', methods=["POST"])
 def postJsonHanlder():
-    content = request.json
+    content = request.get_json()
     print (content)
 
     memo = request.json['memo']
     manage_url = request.json['manage_url']
-    # src_ip = request.json['src_ip']
-    # src_data = request.json['windows_desktopini_access_hostname']
     channel = request.json['channel']
     time = request.json['time']
+    additional_data = request.json['additional_data']
+    src_ip = additional_data['src_ip']
 
     db = get_db()
     db.execute(
-        'INSERT INTO alert (memo, time, manage_url, channel)'
-        'VALUES (?, ?, ?, ?)',
-        ([memo, time, manage_url, channel,])
+        'INSERT INTO alert (memo, time, manage_url, channel, src_ip)'
+        'VALUES (?, ?, ?, ?, ?)',
+        ([memo, time, manage_url, channel, src_ip])
     )
     db.commit()
 
-    # return 'Alert succesfully parsed into the databse.'
-    return content
+    print("\nValues saved in the database:\n" + memo, manage_url, channel, time, src_ip)
+
+    return 'Alert succesfully parsed into the databse.'
