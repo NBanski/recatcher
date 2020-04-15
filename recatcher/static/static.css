@@ -1,7 +1,7 @@
 html {
   font-family: sans-serif;
   background: rgb(107, 61, 61);
-  padding: 1rem;
+  padding: 4rem;
 }
 
 body {
@@ -52,6 +52,17 @@ nav ul  {
 nav ul li a, nav ul li span, header .action {
   display: block;
   padding: 0.5rem;
+}
+
+p {
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 1em;
+}
+
+div {
+    display: block;
 }
 
 .content {
