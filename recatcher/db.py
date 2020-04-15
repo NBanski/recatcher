@@ -25,10 +25,15 @@ def init_db():
 @click.command('init-db')
 @with_appcontext
 def init_db_command():
-    init_db()
-    click.echo('Baza danych została zainicjalizowana.')
+    '''This creates a new database; existing tables will be dropped!'''
+    warn = input('Warning! Existing database WILL BE DROPPED. Make sure to back it up before issuing this command.\nType in "y" or "Y" to proceed.\n> ')
+    if warn in ['Y', 'y']:
+        init_db()
+        click.echo('Database erased and (re)created.')
+    else:
+        pass
+        
 
 def init_app(app):
     app.teardown_appcontext(close_db)
     app.cli.add_command(init_db_command)
-
