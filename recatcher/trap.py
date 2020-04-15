@@ -11,7 +11,7 @@ bp = Blueprint('trap', __name__)
 @bp.route('/trap', methods=["POST"])
 def postJsonHanlder():
     content = request.get_json()
-    print (content)
+    print(content)
 
     memo = request.json['memo']
     manage_url = request.json['manage_url']
