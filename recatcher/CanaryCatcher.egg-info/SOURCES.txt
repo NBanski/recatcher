@@ -1,7 +1,0 @@
-MANIFEST.in
-setup.py
-CanaryCatcher.egg-info/PKG-INFO
-CanaryCatcher.egg-info/SOURCES.txt
-CanaryCatcher.egg-info/dependency_links.txt
-CanaryCatcher.egg-info/not-zip-safe
-CanaryCatcher.egg-info/top_level.txt
