@@ -1,14 +1,14 @@
 {% extends 'base.html' %}
 
 {% block header %}
-<h1>{% block title %}Dashboard{% endblock %}</h1>
+<h1>{% block title %}Displaying all received alerts:{% endblock %}</h1>
 {% endblock %}
 
 {% block content %}
     {% for alerts in alerts %}
         <article class="dashboard">
             <header>Alert ID: {{ alerts['id'] }}</header>
-            <div class="alert">
+            <div id="alert">
                 <p>Alert triggered at {{ alerts['src_ip']}} with memo "{{ alerts['memo'] }}".</p>
                 <p>Triggered at {{ alerts['time']}} and sent over {{ alerts['channel'] }}.</p>
                 <p>Token management at {{ alerts['manage_url'] }}.</p>

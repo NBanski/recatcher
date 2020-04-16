@@ -40,5 +40,8 @@ def create_app(test_config=None):
 
     from . import dashboard
     app.register_blueprint(dashboard.bp)
-    
+
+    from . import search
+    app.register_blueprint(search.bp)
+
     return app
