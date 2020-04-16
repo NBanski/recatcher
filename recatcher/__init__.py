@@ -8,7 +8,7 @@ from flask import Flask
 def create_app(test_config=None):
     app = Flask(__name__, instance_relative_config=True)
     app.config.from_mapping(
-        SECRET_KEY='dev',
+        SECRET_KEY=',KP,RMB[!?2`)iBO`d`L>0BUaNSg8_',
         DATABASE=os.path.join(app.instance_path, 'recatcher.sqlite'),
     )
 
@@ -23,12 +23,6 @@ def create_app(test_config=None):
         os.makedirs(app.instance_path)
     except OSError:
         pass
-
-    # Test app route for shits and giggles. :)
-
-    @app.route('/hello')
-    def hello():
-        return "Hello, World!"
 
     # Blueprints are registered below.
 

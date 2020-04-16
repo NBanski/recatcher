@@ -6,5 +6,5 @@ from recatcher.db import get_db
 bp = Blueprint('search', __name__)
 
 @bp.route('/search', methods=("GET", "POST"))
-def serachEngine():
+def searchEngine():
     return "WIP."

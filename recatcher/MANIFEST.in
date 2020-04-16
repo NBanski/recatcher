@@ -1,0 +1,4 @@
+include recatcher/schema.sql
+graft recatcher/static
+graft recatcher/templates
+global-exclude *.pyc
