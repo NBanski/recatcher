@@ -1,4 +1,5 @@
 build/
 env/
+dist/
 instance/*
 recatcher/__pycache__/*
