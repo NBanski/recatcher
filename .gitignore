@@ -3,3 +3,4 @@ env/
 dist/
 instance/*
 recatcher/__pycache__/*
+recatcher.egg-info/
