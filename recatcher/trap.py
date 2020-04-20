@@ -12,18 +12,20 @@ bp = Blueprint('trap', __name__)
 
 @bp.route('/trap', methods=["POST"])
 def postJsonHanlder():
-
     # Gets the JSON.
     content = request.get_json()
     print(content)
 
     # Extracts the keys. Additional keys might be added below.
-    memo = request.json['memo']
-    manage_url = request.json['manage_url']
-    channel = request.json['channel']
-    time = request.json['time']
-    additional_data = request.json['additional_data']
-    src_ip = additional_data['src_ip']
+    try:
+        memo = request.json['memo']
+        manage_url = request.json['manage_url']
+        channel = request.json['channel']
+        time = request.json['time']
+        additional_data = request.json['additional_data']
+        src_ip = additional_data['src_ip']
+    except KeyError:
+        return '''Your request misses crucial Keys.\nMake sure it has memo, manage_url, channel, time, and addidtional data{source_ip}.'''
 
     # Opens, reads and saves into the database.
     db = get_db()
