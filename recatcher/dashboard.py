@@ -7,7 +7,8 @@ from recatcher.db import get_db
 
 bp = Blueprint('dashboard', __name__)
 
-@bp.route('/', methods = ['GET', 'POST'])
+
+@bp.route('/', methods = ['GET'])
 def mainScreen():
     db = get_db()
     alerts = db.execute(

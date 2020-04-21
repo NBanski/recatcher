@@ -1,5 +1,6 @@
 import os
 from flask import Flask
+from flask_basicauth import BasicAuth
 
 # Creates the app. Test config loads alternate app configuration.
 # Secret key is used in various cryptographic tasks.
@@ -10,6 +11,8 @@ def create_app(test_config=None):
     app.config.from_mapping(
         SECRET_KEY=os.getenv('RECATCHER_KEY'),
         DATABASE=os.path.join(app.instance_path, 'recatcher.sqlite'),
+        BASIC_AUTH_USERNAME = 'bc_operator',
+        BASIC_AUTH_PASSWORD = 'SNTHVRS'
     )
 
     if test_config is None:
