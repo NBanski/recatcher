@@ -10,7 +10,7 @@ bp = Blueprint('dashboard', __name__)
 
 @bp.route('/', methods = ['GET'])
 def mainScreen():
-    if request.authorization and request.authorization.username == 'bc_operator' and request.authorization.password == 'SNTHVRS':
+    if request.authorization and request.authorization.username == 'changethis' and request.authorization.password == 'thistoo':
         db = get_db()
         alerts = db.execute(
             'SELECT id, manage_url, memo, src_ip, channel, time'
